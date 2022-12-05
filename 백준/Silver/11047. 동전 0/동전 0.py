@@ -1,12 +1,12 @@
-
-N, K = map(int, input().split()) 
-coin_lst = list()
+N, K = map(int, input().split())
+coin = []
 for i in range(N):
-    coin_lst.append(int(input()))
+    c = int(input())
+    coin.append(c)
 
-count = 0
-for i in reversed(range(N)):
-    count += K//coin_lst[i] #카운트 값에 K를 동전으로 나눈 몫을 더해줌
-    K = K%coin_lst[i] # K는 동전으로 나눈 나머지로 계속 반복
+answer = 0
+for i in range(N-1,-1,-1):
+    answer += K//coin[i]
+    K = K%coin[i]
 
-print(count)
+print(answer)
